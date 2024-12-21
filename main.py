@@ -7,6 +7,8 @@ from umqtt.simple import MQTTClient
 
 # MQTT Configuration
 MQTT_BROKER = "192.168.31.37"
+MQTT_USER = "test"
+MQTT_PASSWORD = "pass"
 MQTT_CLIENT_ID = "ESP32_Modbus_Client"
 MQTT_TOPIC_BASE = "100BalanceBMS/"
 client = 0
@@ -16,7 +18,7 @@ UART_PORT = 2  # UART2
 TX_PIN = 17
 RX_PIN = 16
 BAUDRATE = 9600
-client = MQTTClient(MQTT_CLIENT_ID, MQTT_BROKER)
+client = MQTTClient(MQTT_CLIENT_ID, MQTT_BROKER, user = MQTT_USER, password = MQTT_PASSWORD)
 # Initialize UART
 uart = UART(UART_PORT, baudrate=BAUDRATE, tx=Pin(TX_PIN), rx=Pin(RX_PIN), stop=1, parity=None, timeout=100)
 
