@@ -136,8 +136,8 @@ def decode_response(response):
                 power = register_value
                 timeToGo = (rem_capacity-15) * 16 * 3.2 * 60 * 60 / power 
                 publish_mqtt(f"{MQTT_TOPIC_BASE}TimeToGo", timeToGo)
-                publish_mqtt(f"{MQTT_TOPIC_BASE}BatteryZeroTime", f"{int(timeToGo//3600)}hrs {int(timeToGo%60)}secs")
-                print(f"TimeToGo: {timeToGo //3600} hrs {timeToGo%60} secs")
+                publish_mqtt(f"{MQTT_TOPIC_BASE}BatteryZeroTime", f"{int(timeToGo//3600)}hrs {int(timeToGo%60)}mins")
+                print(f"TimeToGo: {timeToGo //3600}hrs {timeToGo%60}mins")
                 if (current < 0):
                   power = power * -1
                 publish_mqtt(f"{MQTT_TOPIC_BASE}Power", power)
